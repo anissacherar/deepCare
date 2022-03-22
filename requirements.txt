@@ -1,0 +1,10 @@
+streamlit
+opencv-python-headless
+Pillow
+numpy
+tensorflow
+scikit-image
+matplotlib
+keras
+requests
+h5py
