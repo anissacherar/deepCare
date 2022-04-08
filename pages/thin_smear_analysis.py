@@ -360,7 +360,7 @@ def app():
                             options=["x500", "x1000", "Live Detection"], 
                             help="Microscopic magnification used to capture the images")
         if magni == 'x500':
-            display = Image.open('capture.JPG')
+            display = Image.open('graphical abstract.JPG')
             display = np.array(display)
             col2.image(display, width = 400)        
             model = load_model()
