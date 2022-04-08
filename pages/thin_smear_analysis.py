@@ -10,15 +10,31 @@ from skimage.segmentation import watershed
 from skimage.morphology import  binary_closing, disk, area_opening, area_closing
 from keras.preprocessing import image as imp
 import matplotlib.pyplot as plt
-import time
-import csv
-import shutil
 import os
 from skimage import exposure
-from skimage.exposure import match_histograms
 from pathlib import Path
-from streamlit_webrtc import webrtc_streamer
 
+#Live
+import time
+import pydub
+import threading
+import asyncio
+import logging
+from aiortc.contrib.media import MediaPlayer
+from streamlit_webrtc import (
+    AudioProcessorBase,
+    RTCConfiguration,
+    VideoProcessorBase,
+    WebRtcMode,
+    webrtc_streamer,
+)
+logger = logging.getLogger(__name__)
+logger.debug("=== Alive threads ===")
+for thread in threading.enumerate():
+    if thread.is_alive():
+        logger.debug(f"  {thread.name} ({thread.ident})")
+
+#load the model 
 local="./model/model_5_ResNet.h5"
 #reference=np.asarray(Image.open("2846_IMG_9391_431.jpg"))
 dim = (50, 50)
@@ -411,7 +427,7 @@ def app():
                         with col2:
                             st.image(grp, width=100, channels='RGB')
         elif magni=='Live Detection':
-            webrtc_streamer(key="example")
+            webrtc_streamer(key="loopback")
 
 
                         
