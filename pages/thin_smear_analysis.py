@@ -357,7 +357,7 @@ def app():
 
     if (choices == "Parasite density (%)"):
         magni = col2.radio("Select the magnification of the blood smear images.", 
-                            options=["x500", "x1000"], 
+                            options=["x500", "x1000", "Live Detection"], 
                             help="Microscopic magnification used to capture the images")
         if magni == 'x500':
             display = Image.open('capture.JPG')
@@ -386,6 +386,30 @@ def app():
                         with col2:
                             st.image(grp, width=100, channels='RGB')
         elif magni=='x1000':    
+            model = load_model()
+            #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
+                          #metrics=['accuracy'])
+            file = st.file_uploader("Please upload an image file", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+            col1, col2 = st.columns(2)
+            if file is not None:
+                for f in file:
+                    image = Image.open(f)
+                    image = np.asarray(image)
+                    champ = cropChamp(image)
+                    col1.success("Image uploaded")
+                    col1.image(image, use_column_width=True)
+                    col2.success("Smear Detected")
+                    col2.image(champ, use_column_width=True)
+                    with st.spinner('Blood cells analysis...'):
+                        thresh, champ_f, grp, p = exam_x1000(champ, model=model)
+                        #st.image(thresh,width=500)
+                        col1, col2 = st.columns(2)
+                        with col1:
+                            st.metric(label="PARs (%)", value=p)
+                            st.image(champ_f,use_column_width=True)
+                        with col2:
+                            st.image(grp, width=100, channels='RGB')
+        elif magni=='Live Detection':    
             model = load_model()
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                           #metrics=['accuracy'])
