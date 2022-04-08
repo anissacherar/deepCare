@@ -9,3 +9,6 @@ keras
 requests
 h5py
 streamlit-webrtc
+aiortc==1.3.1
+pydub==0.25.1
+typing_extensions==4.1.1
