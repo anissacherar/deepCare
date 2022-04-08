@@ -175,7 +175,7 @@ class VideoTransformer(VideoTransformerBase):
                     save_txt=False, 
                     source=split_path, 
                     update=False, 
-                    view_img=False, 
+                    view_img=True, 
                     weights=['best_BCCM.pt'])
 
     def transform(self, frame):
@@ -184,7 +184,7 @@ class VideoTransformer(VideoTransformerBase):
         #image gray
         #img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         options = define_options(img)
-        boxes = detect.detect_model(options, print_msg = False)
+        boxes = detect.detect_model(options, print_msg = True)
         for (x, y, w, h) in boxes:
             cv2.rectangle(img=img, pt1=(x, y), pt2=(
                 x + w, y + h), color=(255, 0, 0), thickness=2)
