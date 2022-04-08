@@ -13,8 +13,10 @@ import matplotlib.pyplot as plt
 import os
 from skimage import exposure
 from pathlib import Path
+from argparse import Namespace
 
 #Live
+import detect
 import queue
 import time
 import pydub
@@ -24,7 +26,7 @@ import logging
 import av
 from aiortc.contrib.media import MediaPlayer
 from streamlit_webrtc import (
-    AudioProcessorBase,
+VideoTransformerBase,
     RTCConfiguration,
     VideoProcessorBase,
     WebRtcMode,
@@ -34,19 +36,12 @@ from typing import List, NamedTuple
 
 
 
-
-logger = logging.getLogger(__name__)
-logger.debug("=== Alive threads ===")
-for thread in threading.enumerate():
-    if thread.is_alive():
-        logger.debug(f"  {thread.name} ({thread.ident})")
-
 #load the model 
 local="./model/model_5_ResNet.h5"
 #reference=np.asarray(Image.open("2846_IMG_9391_431.jpg"))
 dim = (50, 50)
 
-def app_object_detection():
+"""def app_object_detection():
 
     MODEL_LOCAL_PATH = "./model/best_BCCM.pt"
 
@@ -157,8 +152,56 @@ def app_object_detection():
                 else:
                     break
 
+class VideoTransformer(VideoTransformerBase):
+            webrtc_ctx = webrtc_streamer(
+        key="object-detection",
+        mode=WebRtcMode.SENDRECV,
+        rtc_configuration=RTC_CONFIGURATION,
+        video_processor_factory=MobileNetSSDVideoProcessor,
+        media_stream_constraints={"video": True, "audio": False},
+        async_processing=True,
+    )"""
+classes={0:'RBC', 1 :'WBC', 2: 'platelet'}
+class VideoTransformer(VideoTransformerBase):
+    def define_options(split_path) :
+        return Namespace(agnostic_nms=False, \
+                    augment=False, \
+                    classes=classes, 
+                    conf_thres=0.4, 
+                    device='', 
+                    img_size=640, 
+                    iou_thres=0.5, 
+                    #output='inference/output', 
+                    save_txt=False, 
+                    source=split_path, 
+                    update=False, 
+                    view_img=False, 
+                    weights=['best_BCCM.pt'])
 
+    def transform(self, frame):
+        img = frame.to_ndarray(format="bgr24")
 
+        #image gray
+        #img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        options = define_options(img)
+        boxes = detect.detect_model(options, print_msg = False)
+        for (x, y, w, h) in boxes:
+            cv2.rectangle(img=img, pt1=(x, y), pt2=(
+                x + w, y + h), color=(255, 0, 0), thickness=2)
+            """roi_gray = img[y:y + h, x:x + w]
+            #roi_gray = cv2.resize(roi_gray, (48, 48), interpolation=cv2.INTER_AREA)
+            if np.sum([roi_gray]) != 0:
+                roi = roi_gray.astype('float') / 255.0
+                roi = img_to_array(roi)
+                roi = np.expand_dims(roi, axis=0)
+                #prediction = classifier.predict(roi)[0]
+                maxindex = int(np.argmax(prediction))
+                #finalout = emotion_dict[maxindex]
+                #output = str(finalout)
+            #label_position = (x, y)"""
+            #cv2.putText(img, output, label_position, cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+        return img
 #old 1awdgaKTdrhk3U5cUbWr5ilaS21XVHNQ7
 #old 2 https://drive.google.com/file/d/1m90YsqJYROdASP2utrNeqfegwbw3c7NP/view?usp=sharing
 GOOGLE_DRIVE_FILE_ID="14ZBhwCAZGNCf1ZfAILGn-IFjv9SGJd1Y"
@@ -547,7 +590,10 @@ def app():
                         with col2:
                             st.image(grp, width=100, channels='RGB')
         elif magni=='Live Detection':
-            app_object_detection()
+            webrtc_streamer(key="example", video_transformer_factory=VideoTransformer,media_stream_constraints={
+            "video": True,
+            "audio": False
+            }   )
             """ctx = webrtc_streamer(key="example",
             #video_processor_factory=VideoProcessor,
             rtc_configuration=RTC_CONFIGURATION,
