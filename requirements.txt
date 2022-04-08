@@ -8,3 +8,4 @@ matplotlib
 keras
 requests
 h5py
+streamlit-webrtc
