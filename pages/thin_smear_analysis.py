@@ -162,21 +162,22 @@ class VideoTransformer(VideoTransformerBase):
         async_processing=True,
     )"""
 classes={0:'RBC', 1 :'WBC', 2: 'platelet'}
+def define_options(split_path) :
+    return Namespace(agnostic_nms=False, \
+                augment=False, \
+                classes=classes, 
+                conf_thres=0.4, 
+                device='', 
+                img_size=640, 
+                iou_thres=0.5, 
+                #output='inference/output', 
+                save_txt=False, 
+                source=split_path, 
+                update=False, 
+                view_img=True, 
+                weights=['best_BCCM.pt'])
 class VideoTransformer(VideoTransformerBase):
-    def define_options(split_path) :
-        return Namespace(agnostic_nms=False, \
-                    augment=False, \
-                    classes=classes, 
-                    conf_thres=0.4, 
-                    device='', 
-                    img_size=640, 
-                    iou_thres=0.5, 
-                    #output='inference/output', 
-                    save_txt=False, 
-                    source=split_path, 
-                    update=False, 
-                    view_img=True, 
-                    weights=['best_BCCM.pt'])
+
 
     def transform(self, frame):
         img = frame.to_ndarray(format="bgr24")
