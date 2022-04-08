@@ -590,7 +590,10 @@ def app():
                         with col2:
                             st.image(grp, width=100, channels='RGB')
         elif magni=='Live Detection':
-            webrtc_streamer(key="example", video_transformer_factory=VideoTransformer,media_stream_constraints={
+            webrtc_streamer(key="example", 
+            rtc_configuration=RTC_CONFIGURATION,
+            video_transformer_factory=VideoTransformer,
+            media_stream_constraints={
             "video": True,
             "audio": False
             }   )
