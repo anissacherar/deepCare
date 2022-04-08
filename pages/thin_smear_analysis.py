@@ -21,6 +21,7 @@ import pydub
 import threading
 import asyncio
 import logging
+import av
 from aiortc.contrib.media import MediaPlayer
 from streamlit_webrtc import (
     AudioProcessorBase,
