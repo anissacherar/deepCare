@@ -367,7 +367,9 @@ def exam_x1000(champ,model):
     return thresh,champ_seg, grp, p
 
 
-
+RTC_CONFIGURATION = RTCConfiguration(
+    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+)
 def app():
     col1, col2 = st.columns(2)
     choices = col1.selectbox("Select the output results ", options=('Parasite density (%)', 'Species identification', 'Multi-stage identification'))
