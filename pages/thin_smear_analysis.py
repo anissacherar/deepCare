@@ -185,17 +185,17 @@ class VideoTransformer(VideoTransformerBase):
         return img"""
     def transform(self, frame):
     
-        img = frame.to_ndarray(format="bgr24")
+        #img = frame.to_ndarray(format="bgr24")
 
         #image gray
         #img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        options = define_options(img)
+        options = define_options(frame)
         boxes = detect.detect(options)
         for (x, y, w, h) in boxes:
-            cv2.rectangle(img=img, pt1=(x, y), pt2=(
+            cv2.rectangle(img=frame, pt1=(x, y), pt2=(
                 x + w, y + h), color=(255, 0, 0), thickness=2)
             #cv2.putText(img, output, label_position, cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-        return img
+        return frame
 #old 1awdgaKTdrhk3U5cUbWr5ilaS21XVHNQ7
 #old 2 https://drive.google.com/file/d/1m90YsqJYROdASP2utrNeqfegwbw3c7NP/view?usp=sharing
 GOOGLE_DRIVE_FILE_ID="14ZBhwCAZGNCf1ZfAILGn-IFjv9SGJd1Y"
