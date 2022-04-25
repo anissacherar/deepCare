@@ -586,7 +586,7 @@ def app():
         elif magni=='Live Detection':
             webrtc_streamer(key="example", 
             rtc_configuration=RTC_CONFIGURATION,
-            video_transformer_factory=VideoTransformer,
+            video_processor_factory=VideoTransformer,
             media_stream_constraints={
             "video": True,
             "audio": False
