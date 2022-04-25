@@ -177,13 +177,14 @@ def define_options(split_path) :
                 view_img=True, 
                 weights=['best_BCCM.pt'])
 class VideoTransformer(VideoTransformerBase):
-    def transform(self, frame):
+    """def transform(self, frame):
         img = frame.to_ndarray(format="bgr24")
 
         img = cv2.cvtColor(cv2.Canny(img, 100, 200), cv2.COLOR_GRAY2BGR)
 
-        return img
-    """def transform(self, frame):
+        return img"""
+    def transform(self, frame):
+    
         img = frame.to_ndarray(format="bgr24")
 
         #image gray
@@ -192,10 +193,9 @@ class VideoTransformer(VideoTransformerBase):
         boxes = detect.detect_model(options, print_msg = True)
         for (x, y, w, h) in boxes:
             cv2.rectangle(img=img, pt1=(x, y), pt2=(
-                x + w, y + h), color=(255, 0, 0), thickness=2)"""
+                x + w, y + h), color=(255, 0, 0), thickness=2)
             #cv2.putText(img, output, label_position, cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-
-        #return img
+        return img
 #old 1awdgaKTdrhk3U5cUbWr5ilaS21XVHNQ7
 #old 2 https://drive.google.com/file/d/1m90YsqJYROdASP2utrNeqfegwbw3c7NP/view?usp=sharing
 GOOGLE_DRIVE_FILE_ID="14ZBhwCAZGNCf1ZfAILGn-IFjv9SGJd1Y"
