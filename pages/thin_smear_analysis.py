@@ -177,8 +177,6 @@ def define_options(split_path) :
                 view_img=True, 
                 weights=['best_BCCM.pt'])
 class VideoTransformer(VideoTransformerBase):
-
-
     def transform(self, frame):
         img = frame.to_ndarray(format="bgr24")
 
