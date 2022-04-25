@@ -18,6 +18,8 @@ from utils.torch_utils import select_device, load_classifier, time_synchronized
 
 
 def detect(opt, save_img=False):
+    boxes = list()
+
     out, source, weights, view_img, save_txt, imgsz = \
         opt.output, opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size
     webcam = source == '0' or source.startswith('rtsp') or source.startswith('http') or source.endswith('.txt')
@@ -109,6 +111,9 @@ def detect(opt, save_img=False):
                     if save_img or view_img:  # Add bbox to image
                         label = '%s %.2f' % (names[int(cls)], conf)
                         plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
+                        x1, y1, x2, y2 = int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3])
+                        boxes.append([x1, y1, x2, y2])
+
 
             # Print time (inference + NMS)
             print('%sDone. (%.3fs)' % (s, t2 - t1))
@@ -142,6 +147,7 @@ def detect(opt, save_img=False):
             os.system('open ' + save_path)
 
     print('Done. (%.3fs)' % (time.time() - t0))
+    return boxes
 
 
 if __name__ == '__main__':
