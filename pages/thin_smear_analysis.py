@@ -172,7 +172,7 @@ def define_options(split_path) :
                 iou_thres=0.5, 
                 output='inference/output', 
                 save_txt=False, 
-                source=0, 
+                source=split_path, 
                 update=False, 
                 view_img=True, 
                 weights=['best_BCCM.pt'])
