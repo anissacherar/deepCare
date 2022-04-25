@@ -170,7 +170,7 @@ def define_options(split_path) :
                 device='', 
                 img_size=640, 
                 iou_thres=0.5, 
-                #output='inference/output', 
+                output='inference/output', 
                 save_txt=False, 
                 source=split_path, 
                 update=False, 
