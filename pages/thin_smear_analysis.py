@@ -189,7 +189,7 @@ class VideoTransformer(VideoTransformerBase):
 
         #image gray
         #img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        options = define_options(img)
+        options = define_options(0)
         boxes = detect.detect(options)
         for (x, y, w, h) in boxes:
             cv2.rectangle(img=img, pt1=(x, y), pt2=(
