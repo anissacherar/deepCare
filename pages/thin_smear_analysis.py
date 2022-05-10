@@ -527,9 +527,11 @@ RTC_CONFIGURATION = RTCConfiguration(
 )
 def app():
     col1, col2 = st.columns(2)
-    choices = col1.selectbox("Select the output results ", options=('Parasite density (%)', 'Species identification', 'Multi-stage identification'))
+    choices = col1.selectbox("Select the output results ", options=('P.Falciparum detection and Parasite density (%)', 
+    'Species identification', 
+    'Multi-stage identification'))
 
-    if (choices == "Parasite density (%)"):
+    if (choices == "P.Falciparum detection and Parasite density (%)"):
         magni = col2.radio("Select the magnification of the blood smear images.", 
                             options=["x500", "x1000", "Live Detection"], 
                             help="Microscopic magnification used to capture the images")
