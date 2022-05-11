@@ -182,7 +182,7 @@ class VideoTransformer(VideoTransformerBase):
         #img = cv2.cvtColor(cv2.Canny(img, 100, 200), cv2.COLOR_GRAY2BGR)
         laplacian_var = cv2.Laplacian(img, cv2.CV_64F).var()
         if laplacian_var < 5:
-            cv2.putText(img, "Bad focus !", (28,36), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 1)
+            cv2.putText(img, "Bad focus !", (28,36), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 1)
         return img
     """def transform(self, frame):
     
@@ -562,6 +562,7 @@ def app():
                             st.image(champ_f,use_column_width=True)
                         with col2:
                             st.image(grp, width=100, channels='RGB')
+                    
         elif magni=='x1000':    
             model = load_model()
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
