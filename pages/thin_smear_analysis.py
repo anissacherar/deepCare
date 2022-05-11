@@ -179,9 +179,11 @@ def define_options(split_path) :
 class VideoTransformer(VideoTransformerBase):
     def transform(self, frame):
         img = frame.to_ndarray(format="bgr24")
-
-        img = cv2.cvtColor(cv2.Canny(img, 100, 200), cv2.COLOR_GRAY2BGR)
-
+        #img = cv2.cvtColor(cv2.Canny(img, 100, 200), cv2.COLOR_GRAY2BGR)
+        laplacian_var = cv2.Laplacian(img, cv2.CV_64F).var()
+        if laplacian_var < 5:
+            cv2.putText(img, "Bad focus", cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            print("Image blurry")
         return img
     """def transform(self, frame):
     
