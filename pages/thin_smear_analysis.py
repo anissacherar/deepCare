@@ -182,7 +182,7 @@ class VideoTransformer(VideoTransformerBase):
         #img = cv2.cvtColor(cv2.Canny(img, 100, 200), cv2.COLOR_GRAY2BGR)
         laplacian_var = cv2.Laplacian(img, cv2.CV_64F).var()
         if laplacian_var < 5:
-            cv2.putText(img, "Bad focus !", (28,36), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            cv2.putText(img, "Bad focus !", (28,36), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 1)
         return img
     """def transform(self, frame):
     
