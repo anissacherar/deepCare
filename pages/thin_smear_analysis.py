@@ -410,7 +410,7 @@ def exam(champ,model):
 
         idx += 1
     grn=len(vraiesCellules)-len(grp)
-    p = '%03.03f%%' % ((len(grp) / len(vraiesCellules) * 100))
+    p = '%03.03f%%' % ((len(grp) / len(vraiesCellules) * 100) if vraiesCellules else 0)
     print("Nombre de GRP : ", len(grp))
     print("Nombre de GRN : ", grn)
     print("charge parasitaire du champ :")
@@ -511,7 +511,7 @@ def exam_x1000(champ,model):
 
         idx += 1
     grn=len(vraiesCellules)-len(grp)
-    p = '%03.03f%%' % ((len(grp) / len(vraiesCellules) * 100))
+    p = '%03.03f%%' % ((len(grp) / len(vraiesCellules) * 100) if vraiesCellules else 0)
     print("Nombre de GRP : ", len(grp))
     print("Nombre de GRN : ", grn)
     print("charge parasitaire du champ :")
