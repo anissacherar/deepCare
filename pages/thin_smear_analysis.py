@@ -34,7 +34,7 @@ VideoTransformerBase,
 )
 from typing import List, NamedTuple
 
-
+print(cv2.__version__)
 
 #load the model 
 local="./model/model_5_ResNet.h5"
