@@ -536,8 +536,6 @@ def app():
                             options=["x500", "x1000", "Live Detection"], 
                             help="Microscopic magnification used to capture the images")
         if magni == 'x500':
-            print(cv2.__version__)
-
             display = Image.open('graphical abstract.jpg')
             display = np.array(display)
             col2.image(display, width = 400)        
