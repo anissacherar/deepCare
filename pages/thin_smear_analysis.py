@@ -3,12 +3,11 @@ import cv2
 from PIL import Image, ImageOps
 import numpy as np
 import tensorflow as tf
-from tensorflow import keras
 from scipy import ndimage
 from skimage.feature import peak_local_max
 from skimage.segmentation import watershed
 from skimage.morphology import  binary_closing, disk, area_opening, area_closing
-from keras.preprocessing import image as imp
+from tensorflow.keras.preprocessing import image as imp
 import matplotlib.pyplot as plt
 import os
 from skimage import exposure
@@ -237,7 +236,7 @@ def background_subtract_area(image, area_threshold=7000, light_bg=True):
         return image - area_opening(image, area_threshold)
 
 def posouneg(img,model):
-    img_r = cv2.resize(img, dim)
+    img_r = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
     img_r = imp.img_to_array(img_r)
     img_r = np.expand_dims(img_r, axis=0)
     img_r /= 255.
