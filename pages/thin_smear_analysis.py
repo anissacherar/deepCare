@@ -396,14 +396,14 @@ def exam(champ,model):
             res = posouneg(gr,model)
             if res == 'GRP':
                 # cv2.circle(champ_seg, (cX, cY), 3, (0,255 , 0), -1)
-                cv2.rectangle(champ_seg, (x, y), (x + w, y + h), (255, 0, 0), 2)
+                cv2.rectangle(champ_seg, (x-5, y-5), (x + w+5, y + h+5), (255, 0, 0), 2)
                 # cv2.putText(champ_seg, 'GRP',  (x + w + 10, y + h), 0, 0.3, (255, 0, 0))
                 #cv2.imwrite("resultats/pos/" + str(idx) + ".jpg", gr)
                 grp.append(gr)
 
             elif res == 'GRN':
                 # cv2.circle(champ_seg, (cX, cY), 3, (0,255 , 0), -1)
-                cv2.rectangle(champ_seg, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                cv2.rectangle(champ_seg, (x-5, y-5), (x + w+5, y + h+5), (0, 255, 0), 2)
                 # cv2.putText(champ_seg, 'GRN',  (x + w + 10, y + h), 0, 0.3, (0, 255, 0))
                 #cv2.imwrite("resultats/neg/" + str(idx) + ".jpg", gr)
 
