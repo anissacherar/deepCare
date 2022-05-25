@@ -236,6 +236,7 @@ def background_subtract_area(image, area_threshold=7000, light_bg=True):
         return image - area_opening(image, area_threshold)
 
 def posouneg(img,model):
+    print(img.shape)
     img_r = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
     img_r = imp.img_to_array(img_r)
     img_r = np.expand_dims(img_r, axis=0)
@@ -492,7 +493,7 @@ def exam_x1000(champ,model):
             #print(gr.shape)
             #gr = cv2.cvtColor(gr, cv2.COLOR_BGR2RGB)
             #gr= match_histograms(gr, reference)
-            vraiesCellules.append(gr)
+            vraiesCellules.append(gr) 
             res = posouneg(gr,model)
             if res == 'GRP':
                 # cv2.circle(champ_seg, (cX, cY), 3, (0,255 , 0), -1)
