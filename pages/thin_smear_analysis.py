@@ -559,6 +559,8 @@ def app():
                         with col1:
                             st.metric(label="PARs (%)", value=p)
                             st.image(champ_f,use_column_width=True)
+                            plt.imshow(champ_f)
+                            plt.show()
                         with col2:
                             st.image(grp, width=100, channels='RGB')
                     
