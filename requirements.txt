@@ -16,6 +16,6 @@ torch>=1.6.0
 torchvision>=0.7.0
 PyYAML>=5.3
 
-pkg-config
-h5py==2.10.0 
-ISR
+#pkg-config
+#h5py==2.10.0 
+#ISR
