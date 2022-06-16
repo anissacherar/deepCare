@@ -4,8 +4,17 @@ import numpy as np
 import streamlit_authenticator as stauth
 
 
+with open('../config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
 
-
+authenticator = stauth.Authenticate(
+    config['credentials']['names'],
+    config['credentials']['usernames'],
+    config['credentials']['passwords'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days']
+)
 #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
 st.set_page_config(
      page_title="MALARIS",
