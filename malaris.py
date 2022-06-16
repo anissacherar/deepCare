@@ -14,39 +14,39 @@ st.set_page_config(
      initial_sidebar_state="expanded",
 )
 
-names = ['Aniss Acherar']
+"""names = ['Aniss Acherar']
 usernames = ['aacherar']
 passwords = ['Kaleidoscope64.']
 authenticator = stauth.authenticate(names,usernames,['$2y$10$isFct9/05KuS2YGh7PVac.OkM/ole83ufXLOKotIhNUXzNvLYQGaa'],'cookie_name', 'signature_key',cookie_expiry_days=30)
-name, authentication_status = authenticator.login('Login','sidebar')
+name, authentication_status = authenticator.login('Login','sidebar')"""
 
-if authentication_status:
-     st.write('Welcome *%s*' % (name))
-     # Create an instance of the app 
-     app = MultiPage()
-     col1, col2 = st.columns(2)
+"""if authentication_status:
+     st.write('Welcome *%s*' % (name))"""
+# Create an instance of the app 
+app = MultiPage()
+col1, col2 = st.columns(2)
 
-     # Title of the main page
-     display = Image.open('logo.JPG')
-     display = np.array(display)
-     st.image(display, width = 120)
-     st.title("DeepCare")
+# Title of the main page
+display = Image.open('logo.JPG')
+display = np.array(display)
+st.image(display, width = 120)
+st.title("DeepCare")
 
-     #col1.image(display, width = 120)
+#col1.image(display, width = 120)
 
-     #col2.title("")
+#col2.title("")
 
-     # Add all your application here
-     app.add_page("THIN SMEAR", thin_smear_analysis.app)
-     app.add_page("THICK SMEAR", thick_smear_analysis.app)
+# Add all your application here
+app.add_page("THIN SMEAR", thin_smear_analysis.app)
+app.add_page("THICK SMEAR", thick_smear_analysis.app)
 
-     # The main app
-     app.run()
- # your application
+# The main app
+app.run()
+""" # your application
 elif authentication_status == False:
  st.error('Username/password is incorrect')
 elif authentication_status == None:
- st.warning('Please enter your username and password')
+ st.warning('Please enter your username and password')"""
 
 
 
