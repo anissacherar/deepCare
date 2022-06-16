@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image, ImageOps
 import numpy as np
 import streamlit_authenticator as stauth
-
+import yaml
 
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
