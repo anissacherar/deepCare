@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image, ImageOps
 import numpy as np
-
+import streamlit_authenticator as stauth
 
 
 #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
@@ -24,7 +24,7 @@ col1, col2 = st.columns(2)
 display = Image.open('logo.JPG')
 display = np.array(display)
 st.image(display, width = 120)
-st.title("MALARIS : The web app for malaria diagnosis")
+st.title("DEEPCARE : The web app for malaria diagnosis")
 
 #col1.image(display, width = 120)
 

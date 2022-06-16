@@ -15,6 +15,7 @@ typing_extensions==4.1.1
 torch>=1.6.0
 torchvision>=0.7.0
 PyYAML>=5.3
+streamlit-authenticator
 
 #pkg-config
 #h5py==2.10.0 
