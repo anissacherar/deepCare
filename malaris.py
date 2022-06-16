@@ -4,7 +4,7 @@ import numpy as np
 import streamlit_authenticator as stauth
 
 
-with open('../config.yaml') as file:
+with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
 authenticator = stauth.Authenticate(
