@@ -1,0 +1,14 @@
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
+credentials:
+  usernames:
+    aacherar:
+      email: aniss.acherar@gmail.com
+      name: Aniss Acherar
+      password: $2y$10$isFct9/05KuS2YGh7PVac.OkM/ole83ufXLOKotIhNUXzNvLYQGaa
+preauthorized:
+  emails:
+  - aniss.acherar@gmail.com
+
