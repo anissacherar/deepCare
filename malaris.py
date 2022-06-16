@@ -17,8 +17,7 @@ st.set_page_config(
 names = ['Aniss Acherar']
 usernames = ['aacherar']
 passwords = ['Kaleidoscope64.']
-hashed_passwords = stauth.hasher(passwords).generate() 
-authenticator = stauth.authenticate(names,usernames,hashed_passwords,'cookie_name', 'signature_key',cookie_expiry_days=30)
+authenticator = stauth.authenticate(names,usernames,['$2y$10$isFct9/05KuS2YGh7PVac.OkM/ole83ufXLOKotIhNUXzNvLYQGaa'],'cookie_name', 'signature_key',cookie_expiry_days=30)
 name, authentication_status = authenticator.login('Login','sidebar')
 
 if authentication_status:
