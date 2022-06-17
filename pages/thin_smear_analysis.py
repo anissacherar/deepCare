@@ -542,7 +542,7 @@ def app():
             model = load_model()
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                           #metrics=['accuracy'])
-            file = st.file_uploader("Please upload an image file", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+            file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
             col1, col2 = st.columns(2)
             #if file is not None:
             if st.button('Run test'):
