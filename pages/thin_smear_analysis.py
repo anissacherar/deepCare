@@ -545,7 +545,7 @@ def app():
             file = st.file_uploader("Please upload an image file", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
             col1, col2 = st.columns(2)
             if file is not None:
-                if st.button('Say hello'):
+                if st.button('Run test'):
                     for f in file:
                         image = Image.open(f)
                         image = np.asarray(image)
@@ -563,7 +563,7 @@ def app():
                                 plt.imshow(champ_f)
                                 plt.show()
                             with col4:
-                                st.image(grp, width=100, channels='RGB')
+                                st.image(grp, width=100, channels='RGB')                    
                     
         elif magni=='x1000':    
             model = load_model()
