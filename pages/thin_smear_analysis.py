@@ -544,26 +544,26 @@ def app():
                           #metrics=['accuracy'])
             file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
             col1, col2 = st.columns(2)
-            #if file is not None:
-            if st.button('Run test'):
-                for f in file:
-                    image = Image.open(f)
-                    image = np.asarray(image)
-                    champ = cropChamp(image)
-                    col1.success("Image uploaded")
-                    col1.image(image, use_column_width=True)
-                    col2.success("Smear Detected")
-                    col2.image(champ, use_column_width=True)
-                    with st.spinner('Blood cells analysis...'):
-                        champ_f, grp, p = exam(champ, model=model)
-                        col3, col4 = st.columns(2)
-                        with col3:
-                            st.metric(label="PARs (%)", value=p)
-                            st.image(champ_f,use_column_width=True)
-                            plt.imshow(champ_f)
-                            plt.show()
-                        with col4:
-                            st.image(grp, width=100, channels='RGB')                    
+            if file is not None:
+                if st.button('Run test'):
+                    for f in file:
+                        image = Image.open(f)
+                        image = np.asarray(image)
+                        champ = cropChamp(image)
+                        col1.success("Image uploaded")
+                        col1.image(image, use_column_width=True)
+                        col2.success("Smear Detected")
+                        col2.image(champ, use_column_width=True)
+                        with st.spinner('Blood cells analysis...'):
+                            champ_f, grp, p = exam(champ, model=model)
+                            col3, col4 = st.columns(2)
+                            with col3:
+                                st.metric(label="PARs (%)", value=p)
+                                st.image(champ_f,use_column_width=True)
+                                plt.imshow(champ_f)
+                                plt.show()
+                            with col4:
+                                st.image(grp, width=100, channels='RGB')                    
                     
         elif magni=='x1000':    
             model = load_model()
