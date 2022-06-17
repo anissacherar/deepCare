@@ -555,13 +555,13 @@ def app():
                     col2.image(champ, use_column_width=True)
                     with st.spinner('Blood cells analysis...'):
                         champ_f, grp, p = exam(champ, model=model)
-                        col1, col2 = st.columns(2)
-                        with col1:
+                        col3, col4 = st.columns(2)
+                        with col3:
                             st.metric(label="PARs (%)", value=p)
                             st.image(champ_f,use_column_width=True)
                             plt.imshow(champ_f)
                             plt.show()
-                        with col2:
+                        with col4:
                             st.image(grp, width=100, channels='RGB')
                     
         elif magni=='x1000':    
