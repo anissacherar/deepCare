@@ -199,7 +199,7 @@ class VideoTransformer(VideoTransformerBase):
 #old 2 https://drive.google.com/file/d/1m90YsqJYROdASP2utrNeqfegwbw3c7NP/view?usp=sharing
 GOOGLE_DRIVE_FILE_ID="14ZBhwCAZGNCf1ZfAILGn-IFjv9SGJd1Y"
  
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 def load_Model():
     
 	# path to file
