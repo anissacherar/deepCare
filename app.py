@@ -4,15 +4,8 @@ import numpy as np
 from pages import malaris
 import streamlit_authenticator as stauth
 #multipages
-from multipage import MultiPage
-from pages import thick_smear_analysis
 import streamlit_book as stb
 from pathlib import Path
-
-
-#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
-
-st.session_state["warned_about_save_answers"] = True
 
 st.set_page_config(
      page_title="MALARIS",
@@ -20,6 +13,19 @@ st.set_page_config(
      layout="wide",
      initial_sidebar_state="expanded",
 )
+
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+#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
+
+st.session_state["warned_about_save_answers"] = True
+
+
 
 
 current_path = Path(__file__).parent.absolute()
