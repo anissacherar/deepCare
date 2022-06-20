@@ -32,14 +32,12 @@ current_path = Path(__file__).parent.absolute()
 stb.set_book_config(menu_title="Main Menu",
                     menu_icon="",
                     options=[
-                            "Home",
                               "About",
                               "MALARIS",
                               "Contact",
 
                             ],
                     paths=[
-                        current_path / "app.py",
                          current_path / "pages/about",
                         current_path / "pages/malaris.py",
                         current_path / "pages/Contact",
