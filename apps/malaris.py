@@ -34,7 +34,7 @@ VideoTransformerBase,
 from typing import List, NamedTuple
 
 
-from apps.code.thin import *
+from code.thin import *
 
 def app():
     col1, col2 = st.columns(2)
