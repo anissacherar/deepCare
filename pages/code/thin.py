@@ -200,7 +200,7 @@ class VideoTransformer(VideoTransformerBase):
 GOOGLE_DRIVE_FILE_ID="14ZBhwCAZGNCf1ZfAILGn-IFjv9SGJd1Y"
  
 @st.cache(allow_output_mutation=True)
-def load_model():
+def load_Model():
     
 	# path to file
 	filepath = "model/"

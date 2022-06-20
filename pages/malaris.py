@@ -50,7 +50,7 @@ def app():
             #display = Image.open('../graphical abstract.jpg')
             #display = np.array(display)
             #col2.image(display, width = 400)        
-            model = load_model()
+            model = load_Model()
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                           #metrics=['accuracy'])
             file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
@@ -77,7 +77,7 @@ def app():
                                 st.image(grp, width=100, channels='RGB')                    
                     
         elif magni=='x1000':    
-            model = load_model()
+            model = load_Model()
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                           #metrics=['accuracy'])
             file = st.file_uploader("Please upload an image file", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
