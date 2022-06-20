@@ -1,10 +1,11 @@
 import streamlit as st
 from PIL import Image, ImageOps
 import numpy as np
+from pages.malaris import thin_smear_analysis
 import streamlit_authenticator as stauth
 #multipages
 from multipage import MultiPage
-from pages import thin_smear_analysis, thick_smear_analysis
+from pages import thick_smear_analysis
 import streamlit_book as stb
 from pathlib import Path
 
