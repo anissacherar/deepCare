@@ -34,7 +34,8 @@ VideoTransformerBase,
 from typing import List, NamedTuple
 
 
-from code.thin import *
+from pages.code.thin import *
+
 def app():
     col1, col2 = st.columns(2)
     choices = col1.selectbox("Select the output results ", options=('P.Falciparum detection and Parasite density (%)', 
