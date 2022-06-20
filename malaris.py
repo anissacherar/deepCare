@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image, ImageOps
 import numpy as np
-from pages import thin_smear_analysis
+from pages import malaris
 import streamlit_authenticator as stauth
 #multipages
 from multipage import MultiPage
@@ -31,7 +31,7 @@ stb.set_book_config(menu_title="Main Menu",
                     paths=[
                         current_path / "malaris",
                          current_path / "pages/about",
-                        current_path / "pages/thin_smear_analysis.py",
+                        current_path / "pages/malaris.py",
                         current_path / "pages/Contact",
                           ],
                     icons=[
