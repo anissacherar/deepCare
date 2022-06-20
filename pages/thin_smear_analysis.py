@@ -633,5 +633,4 @@ def app():
                 st.write(p)
                 st.image(grp, width=100)
 
-if __name__ == "__app__":
-    app()
+app()
