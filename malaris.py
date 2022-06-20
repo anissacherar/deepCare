@@ -37,8 +37,6 @@ stb.set_book_config(menu_title="Main Menu",
                           "house",
                           "",
                           "",
-                          "",
-                          "",
                           "trophy"
                           ],
                     save_answers=True,
