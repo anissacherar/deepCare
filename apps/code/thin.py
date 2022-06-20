@@ -35,7 +35,7 @@ VideoTransformerBase,
 from typing import List, NamedTuple
 
 #load the model 
-local="./apps/model/model_5_ResNet.h5"
+local="../apps/model/model_5_ResNet.h5"
 #reference=np.asarray(Image.open("2846_IMG_9391_431.jpg"))
 dim = (50, 50)
 
