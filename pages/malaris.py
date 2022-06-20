@@ -34,7 +34,7 @@ VideoTransformerBase,
 from typing import List, NamedTuple
 
 
-from code import thin
+from code.thin import *
 def app():
     col1, col2 = st.columns(2)
     choices = col1.selectbox("Select the output results ", options=('P.Falciparum detection and Parasite density (%)', 
@@ -49,7 +49,7 @@ def app():
             #display = Image.open('../graphical abstract.jpg')
             #display = np.array(display)
             #col2.image(display, width = 400)        
-            model = thin.load_model()
+            model = load_model()
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                           #metrics=['accuracy'])
             file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
@@ -59,13 +59,13 @@ def app():
                     for f in file:
                         image = Image.open(f)
                         image = np.asarray(image)
-                        champ = thin.cropChamp(image)
+                        champ = cropChamp(image)
                         col1.success("Image uploaded")
                         col1.image(image, use_column_width=True)
                         col2.success("Smear Detected")
                         col2.image(champ, use_column_width=True)
                         with st.spinner('Blood cells analysis...'):
-                            champ_f, grp, p = thin.exam(champ, model=model)
+                            champ_f, grp, p = exam(champ, model=model)
                             col3, col4 = st.columns(2)
                             with col3:
                                 st.metric(label="PARs (%)", value=p)
@@ -76,7 +76,7 @@ def app():
                                 st.image(grp, width=100, channels='RGB')                    
                     
         elif magni=='x1000':    
-            model = thin.load_model()
+            model = load_model()
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                           #metrics=['accuracy'])
             file = st.file_uploader("Please upload an image file", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
@@ -85,13 +85,13 @@ def app():
                 for f in file:
                     image = Image.open(f)
                     image = np.asarray(image)
-                    champ = thin.cropChamp(image)
+                    champ = cropChamp(image)
                     col1.success("Image uploaded")
                     col1.image(image, use_column_width=True)
                     col2.success("Smear Detected")
                     col2.image(champ, use_column_width=True)
                     with st.spinner('Blood cells analysis...'):
-                        thresh, champ_f, grp, p = thin.exam_x1000(champ, model=model)
+                        thresh, champ_f, grp, p = exam_x1000(champ, model=model)
                         #st.image(thresh,width=500)
                         col1, col2 = st.columns(2)
                         with col1:
@@ -101,8 +101,8 @@ def app():
                             st.image(grp, width=100, channels='RGB')
         elif magni=='Live Detection':
             webrtc_streamer(key="example", 
-            rtc_configuration=thin.RTC_CONFIGURATION,
-            video_processor_factory=thin.VideoTransformer,
+            rtc_configuration=RTC_CONFIGURATION,
+            video_processor_factory=VideoTransformer,
             media_stream_constraints={
             "video": True,
             "audio": False
@@ -133,11 +133,11 @@ def app():
             else:
                 image = Image.open(file)
                 image = np.asarray(image)
-                champ = thin.cropChamp(image)
+                champ = cropChamp(image)
                 st.image(image, use_column_width=True)
                 st.success("Smear Detected")
                 st.image(champ, use_column_width=True)
-                champ_f, grp, p = thin.exam(champ,model=model)
+                champ_f, grp, p = exam(champ,model=model)
                 st.image(champ_f)
                 st.text("Charge parasitaire :")
                 st.write(p)
