@@ -34,7 +34,7 @@ VideoTransformerBase,
 from typing import List, NamedTuple
 
 
-from apps.code.thin import load_Model
+from apps.code.thin import *
 
 def app():
     col1, col2 = st.columns(2)
@@ -50,13 +50,13 @@ def app():
             #display = Image.open('../graphical abstract.jpg')
             #display = np.array(display)
             #col2.image(display, width = 400)        
-            model = load_Model()
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                           #metrics=['accuracy'])
             file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
             col1, col2 = st.columns(2)
             if file is not None:
                 if st.button('Run test'):
+                    model = load_Model()
                     for f in file:
                         image = Image.open(f)
                         image = np.asarray(image)
