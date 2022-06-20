@@ -21,12 +21,17 @@ current_path = Path(__file__).parent.absolute()
 stb.set_book_config(menu_title="Main Menu",
                     menu_icon="",
                     options=[
-                            "MALARIS",
+                            "Home",
+                              "About",
+                              "MALARIS",
+                              "Contact",
+
                             ],
                     paths=[
+                        current_path / "malaris",
+                         current_path / "pages/about",
                         current_path / "pages/thin_smear_analysis",
-                        current_path / "apps/land",
-                        current_path / "apps/oceans",
+                        current_path / "pages/Contact",
                           ],
                     icons=[
                           "house",
