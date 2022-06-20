@@ -11,12 +11,16 @@ from pathlib import Path
 
 
 #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
+
+st.session_state["warned_about_save_answers"] = True
+
 st.set_page_config(
      page_title="MALARIS",
      page_icon="🧊",
      layout="wide",
      initial_sidebar_state="expanded",
 )
+
 
 current_path = Path(__file__).parent.absolute()
 stb.set_book_config(menu_title="Main Menu",
@@ -44,7 +48,7 @@ stb.set_book_config(menu_title="Main Menu",
                     )
 
 # Create an instance of the app 
-app = MultiPage()
+#app = MultiPage()
 col1, col2 = st.columns(2)
 
 # Title of the main page
