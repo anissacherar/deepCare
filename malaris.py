@@ -28,7 +28,7 @@ stb.set_book_config(menu_title="Main Menu",
 
                             ],
                     paths=[
-                        current_path / "main/malaris",
+                        current_path / "malaris",
                          current_path / "main/pages/about",
                         current_path / "main/pages/thin_smear_analysis",
                         current_path / "main/pages/Contact",
