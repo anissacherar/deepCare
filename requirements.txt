@@ -17,6 +17,10 @@ torchvision>=0.7.0
 PyYAML>=5.3
 streamlit-authenticator
 streamlit_book==0.7.0
+streamlit-option-menu==0.2.6
+extra-streamlit-components==0.1.53
+ffmpeg-python==0.2.0
+click==8.0.4
 
 #pkg-config
 #h5py==2.10.0 
