@@ -34,7 +34,7 @@ VideoTransformerBase,
 from typing import List, NamedTuple
 
 
-from code.thin import *
+from apps.code.thin import load_Model, exam, cropChamp, exam_x1000
 
 def app():
     col1, col2 = st.columns(2)
