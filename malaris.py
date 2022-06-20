@@ -31,7 +31,7 @@ stb.set_book_config(menu_title="Main Menu",
                     paths=[
                         current_path / "malaris",
                          current_path / "pages/about",
-                        current_path / "pages/malaris",
+                        current_path / "pages/thin_smear_analysis.py",
                         current_path / "pages/Contact",
                           ],
                     icons=[
@@ -58,11 +58,11 @@ st.title("DeepCare")
 #col2.title("")
 
 # Add all your application here
-app.add_page("THIN SMEAR", thin_smear_analysis.app)
+"""app.add_page("THIN SMEAR", thin_smear_analysis.app)
 app.add_page("THICK SMEAR", thick_smear_analysis.app)
 
 # The main app
-app.run()
+app.run()"""
 
 
 
