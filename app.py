@@ -33,7 +33,7 @@ stb.set_book_config(menu_title="Main Menu",
 
                             ],
                     paths=[
-                        current_path / "malaris",
+                        current_path / "app.py",
                          current_path / "pages/about",
                         current_path / "pages/malaris.py",
                         current_path / "pages/Contact",
