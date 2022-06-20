@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image, ImageOps
 import numpy as np
-from pages import malaris
 import streamlit_authenticator as stauth
 #multipages
 import streamlit_book as stb
@@ -38,9 +37,9 @@ stb.set_book_config(menu_title="Main Menu",
 
                             ],
                     paths=[
-                         current_path / "pages/about",
-                        current_path / "pages/malaris.py",
-                        current_path / "pages/Contact",
+                         current_path / "apps/about",
+                        current_path / "apps/malaris.py",
+                        current_path / "apps/Contact",
                           ],
                     icons=[
                           "house",
