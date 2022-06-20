@@ -538,8 +538,10 @@ def app():
         if magni == 'x500':
             #display = Image.open('../graphical abstract.jpg')
             #display = np.array(display)
-            #col2.image(display, width = 400)        
-            model = load_model()
+            #col2.image(display, width = 400)
+            model = tf.keras.models.load_model(local)
+        
+            #model = load_model()
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                           #metrics=['accuracy'])
             file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
