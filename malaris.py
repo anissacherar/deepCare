@@ -5,6 +5,9 @@ import streamlit_authenticator as stauth
 #multipages
 from multipage import MultiPage
 from pages import thin_smear_analysis, thick_smear_analysis
+import streamlit_book as stb
+from pathlib import Path
+
 
 #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
 st.set_page_config(
@@ -14,6 +17,27 @@ st.set_page_config(
      initial_sidebar_state="expanded",
 )
 
+current_path = Path(__file__).parent.absolute()
+stb.set_book_config(menu_title="Main Menu",
+                    menu_icon="",
+                    options=[
+                            "MALARIS",
+                            ],
+                    paths=[
+                        current_path / "pages/thin_smear_analysis",
+                        current_path / "apps/land",
+                        current_path / "apps/oceans",
+                          ],
+                    icons=[
+                          "house",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "trophy"
+                          ],
+                    save_answers=True,
+                    )
 
 # Create an instance of the app 
 app = MultiPage()

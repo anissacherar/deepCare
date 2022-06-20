@@ -16,6 +16,7 @@ torch>=1.6.0
 torchvision>=0.7.0
 PyYAML>=5.3
 streamlit-authenticator
+streamlit_book==0.7.0
 
 #pkg-config
 #h5py==2.10.0 
