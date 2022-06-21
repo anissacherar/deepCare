@@ -2,7 +2,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 
-
 from PIL import Image, ImageOps
 import numpy as np
 import tensorflow as tf
@@ -34,7 +33,7 @@ from typing import List, NamedTuple
 
 from apps.code.thin import *
 
-def app():
+def main():
     col1, col2 = st.columns(2)
     choices = col1.selectbox("Select the output results ", options=('P.Falciparum detection and Parasite density (%)', 
     'Species identification', 
@@ -145,4 +144,5 @@ def app():
                 st.write(p)
                 st.image(grp, width=100)
 
-app()
+if __name__ == "__main__":
+    main()
