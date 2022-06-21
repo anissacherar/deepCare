@@ -237,7 +237,7 @@ def background_subtract_area(image, area_threshold=7000, light_bg=True):
         return image - area_opening(image, area_threshold)
 
 #@st.cache(suppress_st_warning=True)
-@st.cache(show_spinner=False)
+#@st.cache(show_spinner=False)
 def posouneg(img,model):
     print(img.shape)
     img_r = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
@@ -319,7 +319,7 @@ def cropChamp(image):
     # cv2.imwrite("resultats/evaluation_images/odm/" + (str(image).split('/')[-1]).split('.')[0] + ".jpg", champ)
     return champ
 
-@st.cache(allow_output_mutation=True, max_entries=10, ttl=3600) #online uniquement
+#@st.cache(allow_output_mutation=True, max_entries=10, ttl=3600) #online uniquement
 #@st.cache(show_spinner=False)
 def exam(champ,model):
     # champ2 = cv2.fastNlMeansDenoisingColored(champ, None, 10, 10, 21, 7)
@@ -424,7 +424,7 @@ def exam(champ,model):
 
     return champ_seg, grp, p
 
-@st.cache(show_spinner=False)
+#@st.cache(show_spinner=False)
 def exam_x1000(champ,model):
     # champ2 = cv2.fastNlMeansDenoisingColored(champ, None, 10, 10, 21, 7)
     champ_seg = champ.copy()  # nouveau champ pour dessiner les bbox et le périmêtre d'analyse
