@@ -6,7 +6,6 @@ import streamlit_authenticator as stauth
 import streamlit_book as stb
 from pathlib import Path
 
-st.session_state["warned_about_save_answers"] = True
 
 st.set_page_config(
      page_title="MALARIS",
@@ -15,14 +14,6 @@ st.set_page_config(
      initial_sidebar_state="expanded",
 )
 
-hide_streamlit_style = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-
 
 # Title of the main page
 display = Image.open('logo.JPG')
@@ -30,7 +21,6 @@ display = np.array(display)
 st.image(display, width = 120)
 st.title("DeepCare")
 
-current_path = Path(__file__).parent.absolute()
 
 stb.set_chapter_config(menu_title="Main Menu",
                     menu_icon="",
@@ -41,13 +31,13 @@ stb.set_chapter_config(menu_title="Main Menu",
 
                             ],
                     paths=[
-                         current_path / "apps/about",
-                        current_path / "apps/malaris.py",
-                        current_path / "apps/Contact",
+                        "apps/about",
+                        "apps/malaris.py",
+                        "apps/Contact",
                           ],
                     icons=[
                           "house",
-                          "",
+                          "robot",
                           "trophy"
                           ],
                     save_answers=True,
