@@ -22,7 +22,7 @@ st.image(display, width = 120)
 st.title("DeepCare")
 
 
-stb.set_cbook_config(menu_title="Main Menu",
+stb.set_book_config(menu_title="Main Menu",
                     menu_icon="lightbulb",
                     options=[
                               "About",
