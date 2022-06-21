@@ -32,7 +32,7 @@ st.title("DeepCare")
 
 current_path = Path(__file__).parent.absolute()
 
-stb.set_book_config(menu_title="Main Menu",
+stb.set_chapter_config(menu_title="Main Menu",
                     menu_icon="",
                     options=[
                               "About",
