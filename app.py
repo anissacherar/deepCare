@@ -6,6 +6,8 @@ import streamlit_authenticator as stauth
 import streamlit_book as stb
 from pathlib import Path
 
+st.session_state["warned_about_save_answers"] = True
+
 st.set_page_config(
      page_title="MALARIS",
      page_icon="🧊",
@@ -20,13 +22,7 @@ footer {visibility: hidden;}
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-#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
 
-st.session_state["warned_about_save_answers"] = True
-
-
-
-col1, col2 = st.columns(2)
 
 # Title of the main page
 display = Image.open('logo.JPG')
@@ -35,6 +31,7 @@ st.image(display, width = 120)
 st.title("DeepCare")
 
 current_path = Path(__file__).parent.absolute()
+
 stb.set_book_config(menu_title="Main Menu",
                     menu_icon="",
                     options=[

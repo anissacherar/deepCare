@@ -53,7 +53,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
         selectedImageUrl = imageCarouselComponent(imageUrls=file, height=200)
         col1, col2 = st.columns(2)            
         if file is not None:
-            st.image(selectedImageUrl)
+            #st.image(selectedImageUrl)
             if st.button('Run test'):
                 model = load_Model()
                 for f in file:
