@@ -52,10 +52,9 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
         file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
         imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
         selectedImageUrl = imageCarouselComponent(imageUrls=file, height=200)
-        col1, col2 = st.columns(2)
-        if selectedImageUrl is not None:
-            st.image(selectedImageUrl)
+        col1, col2 = st.columns(2)            
         if file is not None:
+            st.image(selectedImageUrl)
             if st.button('Run test'):
                 model = load_Model()
                 for f in file:
