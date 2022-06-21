@@ -23,11 +23,24 @@ st.title("DeepCare")
 
 st.session_state["warned_about_save_answers"] = True
 
-stb.set_chapter_config(
+stb.set_book_config(menu_title="Main Menu",
+                    menu_icon="lightbulb",
+                    options=[
+                              "About",
+                              "MALARIS",
+                              "Contact",
 
-                    path=
-                        "apps/",
-
+                            ],
+                    paths=[
+                        "apps/about",
+                        "apps/malaris.py",
+                        "apps/Contact",
+                          ],
+                    icons=[
+                          "house",
+                          "robot",
+                          "trophy"
+                          ],
                     save_answers=True,
                     )
 
