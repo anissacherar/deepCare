@@ -172,5 +172,5 @@ def main():
     if selectedImageUrl is not None:
         st.image(selectedImageUrl)
 
-if __name__ == "__main__":
-    main()
+
+main()
