@@ -49,6 +49,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
         #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                         #metrics=['accuracy'])
         file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+        st.image(file, width=100, channels='RGB') 
         #imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
         #selectedImageUrl = imageCarouselComponent(imageUrls=file, height=200)
         col1, col2 = st.columns(2)            
@@ -70,8 +71,6 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                         with col3:
                             st.metric(label="PARs (%)", value=p)
                             st.image(champ_f,use_column_width=True)
-                            plt.imshow(champ_f)
-                            plt.show()
                         with col4:
                             st.image(grp, width=100, channels='RGB')                    
                 
