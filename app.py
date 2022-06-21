@@ -22,8 +22,8 @@ st.image(display, width = 120)
 st.title("DeepCare")
 
 
-stb.set_chapter_config(menu_title="Main Menu",
-                    menu_icon="",
+stb.set_cbook_config(menu_title="Main Menu",
+                    menu_icon="lightbulb",
                     options=[
                               "About",
                               "MALARIS",
