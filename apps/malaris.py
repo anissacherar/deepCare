@@ -1,18 +1,15 @@
 import streamlit as st
-import cv2
+import streamlit.components.v1 as components
+
+
+
 from PIL import Image, ImageOps
 import numpy as np
 import tensorflow as tf
-from scipy import ndimage
-from skimage.feature import peak_local_max
-from skimage.segmentation import watershed
-from skimage.morphology import  binary_closing, disk, area_opening, area_closing
+
 from tensorflow.keras.preprocessing import image as imp
 import matplotlib.pyplot as plt
-import os
-from skimage import exposure
-from pathlib import Path
-from argparse import Namespace
+
 
 #Live
 import detect
@@ -23,6 +20,7 @@ import threading
 import asyncio
 import logging
 import av
+
 from aiortc.contrib.media import MediaPlayer
 from streamlit_webrtc import (
 VideoTransformerBase,
@@ -53,7 +51,11 @@ def app():
             #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                           #metrics=['accuracy'])
             file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+            imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
+            selectedImageUrl = imageCarouselComponent(imageUrls=file, height=200)
             col1, col2 = st.columns(2)
+            if selectedImageUrl is not None:
+                st.image(selectedImageUrl)
             if file is not None:
                 if st.button('Run test'):
                     model = load_Model()
@@ -116,7 +118,6 @@ def app():
             "audio": False
             }   
             )"""
-
 
                         
     elif (choices == "Species identification"):
