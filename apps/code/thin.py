@@ -204,17 +204,17 @@ GOOGLE_DRIVE_FILE_ID="14ZBhwCAZGNCf1ZfAILGn-IFjv9SGJd1Y"
 def load_Model():
     
 	# path to file
-	filepath = "model/"
+	#filepath = "model/"
 	# folder exists?
-	if not os.path.exists('model'):
+	#if not os.path.exists('model'):
 		# create folder
-		os.mkdir('model')
+		#os.mkdir('model')
 	
 	# file exists?
-	if not os.path.exists(filepath):
+	#if not os.path.exists(filepath):
 		# download file
-		from GD_download import download_file_from_google_drive
-		download_file_from_google_drive(id=GOOGLE_DRIVE_FILE_ID, destination=filepath)
+	#	from GD_download import download_file_from_google_drive
+	#	download_file_from_google_drive(id=GOOGLE_DRIVE_FILE_ID, destination=filepath)
 	
 	# load model
 	model = tf.keras.models.load_model(local)
