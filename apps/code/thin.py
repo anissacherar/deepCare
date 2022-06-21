@@ -244,7 +244,6 @@ def posouneg(img,model):
     img_r = imp.img_to_array(img_r)
     img_r = np.expand_dims(img_r, axis=0)
     img_r /= 255.
-
     res=np.argmax(model.predict(img_r),axis=1)
     if res==0:
         prediction = 'GRN'
