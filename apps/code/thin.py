@@ -319,8 +319,8 @@ def cropChamp(image):
     # cv2.imwrite("resultats/evaluation_images/odm/" + (str(image).split('/')[-1]).split('.')[0] + ".jpg", champ)
     return champ
 
-#@st.cache(allow_output_mutation=True, max_entries=10, ttl=3600) #online uniquement
-@st.cache(show_spinner=False)
+@st.cache(allow_output_mutation=True, max_entries=10, ttl=3600) #online uniquement
+#@st.cache(show_spinner=False)
 def exam(champ,model):
     # champ2 = cv2.fastNlMeansDenoisingColored(champ, None, 10, 10, 21, 7)
     plt.figure(figsize=(10, 10))
