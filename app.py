@@ -48,7 +48,6 @@ stb.set_book_config(menu_title="Main Menu",
                     icons=[
                           "house",
                           "",
-                          "",
                           "trophy"
                           ],
                     save_answers=True,
