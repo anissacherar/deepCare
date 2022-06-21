@@ -16,7 +16,7 @@ st.set_page_config(
 
 
 # Title of the main page
-display = Image.open('logo.JPG')
+display = Image.open('logo_shadow.jpg')
 display = np.array(display)
 st.image(display, width = 120)
 st.title("DeepCare")
