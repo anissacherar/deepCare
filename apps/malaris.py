@@ -6,7 +6,6 @@ from PIL import Image, ImageOps
 import numpy as np
 import tensorflow as tf
 
-from tensorflow.keras.preprocessing import image as imp
 import matplotlib.pyplot as plt
 
 
