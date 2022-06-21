@@ -23,8 +23,7 @@ st.title("DeepCare")
 
 st.session_state["warned_about_save_answers"] = True
 
-stb.set_chapter_config(menu_title="Main Menu",
-                    menu_icon="lightbulb",
+stb.set_chapter_config(
 
                     path=
                         "apps/",
