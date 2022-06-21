@@ -200,7 +200,7 @@ class VideoTransformer(VideoTransformerBase):
 GOOGLE_DRIVE_FILE_ID="14ZBhwCAZGNCf1ZfAILGn-IFjv9SGJd1Y"
  
 #@st.cache(allow_output_mutation=True)
-@st.cache(suppress_st_warning=True)  # 👈 Changed this
+@st.cache(show_spinner=False)
 def load_Model():
     
 	# path to file
@@ -236,7 +236,8 @@ def background_subtract_area(image, area_threshold=7000, light_bg=True):
     else:
         return image - area_opening(image, area_threshold)
 
-@st.cache(suppress_st_warning=True)  # 👈 Changed this
+#@st.cache(suppress_st_warning=True)
+@st.cache(show_spinner=False)
 def posouneg(img,model):
     print(img.shape)
     img_r = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
