@@ -200,6 +200,7 @@ class VideoTransformer(VideoTransformerBase):
 GOOGLE_DRIVE_FILE_ID="14ZBhwCAZGNCf1ZfAILGn-IFjv9SGJd1Y"
  
 #@st.cache(allow_output_mutation=True)
+@st.cache(suppress_st_warning=True)  # 👈 Changed this
 def load_Model():
     
 	# path to file
@@ -235,6 +236,7 @@ def background_subtract_area(image, area_threshold=7000, light_bg=True):
     else:
         return image - area_opening(image, area_threshold)
 
+@st.cache(suppress_st_warning=True)  # 👈 Changed this
 def posouneg(img,model):
     print(img.shape)
     img_r = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
@@ -265,7 +267,7 @@ def plot_image_grid(images, ncols=None):
                 img = img.squeeze()
             ax.imshow(img)
 
-
+@st.cache(suppress_st_warning=True)  # 👈 Changed this
 def cropChamp(image):
     e = 40  # envorion 1 cm 70 c'est beacoup ça dépend de l'oculaire du microscope
     plt.imshow(image)
