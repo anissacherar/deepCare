@@ -268,7 +268,7 @@ def plot_image_grid(images, ncols=None):
                 img = img.squeeze()
             ax.imshow(img)
 
-@st.cache(suppress_st_warning=True)  # 👈 Changed this
+#@st.cache(suppress_st_warning=True)  # 👈 Changed this
 def cropChamp(image):
     e = 40  # envorion 1 cm 70 c'est beacoup ça dépend de l'oculaire du microscope
     plt.imshow(image)

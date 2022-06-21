@@ -4,10 +4,6 @@ import streamlit.components.v1 as components
 
 from PIL import Image, ImageOps
 import numpy as np
-import tensorflow as tf
-
-import matplotlib.pyplot as plt
-
 
 #Live
 import detect
@@ -124,7 +120,7 @@ elif (choices == "Species identification"):
     if model is None:
         st.text("Please upload a model")
     else:
-        model = tf.keras.models.load_model(model,compile=False)
+        #model = tf.keras.models.load_model(model,compile=False)
         file = st.file_uploader("Please upload an image file", type=["jpg", "png"])
         if file is None:
             st.text("Please upload an image")
