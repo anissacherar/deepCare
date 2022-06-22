@@ -70,7 +70,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                     col3, col4 = st.columns(2)
                     with col3:
                         st.metric(label="PARs (%)", value=p)
-                        st.image(champ_f,use_column_width=True)
+                        st.image(champ_f, use_column_width=True)
                     with col4:
                         st.image(grp, width=100, channels='RGB')
                         if st.button('Deep Quality') and len(grp)>0:
@@ -82,11 +82,11 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                                     "Uninfected":grn,
                                     "RBCs":grn+len(grp),
                                     }, index=[1])
-            st.dataframe(report["PARS (%)"].style.highlight_max(axis=0))
-            st.download_button(
-            label='Export report as CSV file', 
-            data = report, 
-            file_name ='report.csv')
+            #st.dataframe(report["PARS (%)"].style.highlight_max(axis=0))
+            #st.download_button(
+            #label='Export report as CSV file', 
+            #data = report, 
+            #file_name ='report.csv')
                                     
     elif magni=='x1000':    
         model = load_Model()
