@@ -4,7 +4,7 @@ import streamlit.components.v1 as components
 
 from PIL import Image, ImageOps
 import numpy as np
-
+import pandas as pd
 #Live
 import detect
 import queue
@@ -62,19 +62,25 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                     col2.success("Smear Detected")
                     col2.image(champ, use_column_width=True)
                     with st.spinner('Blood cells analysis...'):
-                        champ_f, grp, p = exam(champ, model=model)
+                        champ_f, grp, p, grn = exam(champ, model=model)
                         col3, col4 = st.columns(2)
                         with col3:
                             st.metric(label="PARs (%)", value=p)
                             st.image(champ_f,use_column_width=True)
                         with col4:
-                            st.image(grp, width=100, channels='RGB')                    
+                            st.image(grp, width=100, channels='RGB')
+            if st.button('Deep Quality') and len(grp)>0:
+                st.image(grp, width=100, channels='RGB')
+
+            df = pd.DataFrame(np.random.randn(10, 20), columns=('col %d' % i for i in range(20)))
+            st.dataframe(df.style.highlight_max(axis=0))
+
                 
     elif magni=='x1000':    
         model = load_Model()
         #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
                         #metrics=['accuracy'])
-        file = st.file_uploader("Please upload an image file", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+        file = st.file_uploader("Please upload images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
         col1, col2 = st.columns(2)
         if file is not None:
             for f in file:

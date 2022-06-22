@@ -421,7 +421,7 @@ def exam(champ,model):
     print("Analyse de " + str(len(vraiesCellules)) + " hématies en  --- %s secondes ---" % ((time.time() - start_time)))
     print("###########################################################################")
 
-    return champ_seg, grp, p
+    return champ_seg, grp, p, grn
 
 #@st.cache(show_spinner=False)
 def exam_x1000(champ,model):
