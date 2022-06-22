@@ -85,12 +85,11 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                                     }, ignore_index=True)
             #st.dataframe(report.style.highlight_max(axis=0))
             st.dataframe(report)
-
             #st.download_button(
             #label='Export report as CSV file', 
             #data = report, 
             #file_name ='report.csv')
-        else:
+        elif st.button('Run test', on_click=handle_click) and file is  None:
             st.warning('Please upload one or more images !')
                      
     elif magni=='x1000':    
