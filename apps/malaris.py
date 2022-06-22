@@ -79,14 +79,12 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                                     "PARs":len(grp), 
                                     "Uninfected":grn,
                                     "RBCs":grn+len(grp),
-                                    },index=[0])
+                                    },index=[1])
                 st.dataframe(report.style.highlight_max(axis=0))
-               # df = pd.DataFrame(['0', file, p, len(grp), grn, grn+len(grp)], columns=['Patient', 'Data', 'PARS (%)', 'PARs', 'Uninfected', 'RBCs'])
-                #st.dataframe(df.style.highlight_max(axis=0))
-                #st.download_button(
-                #label='Export CSV file', 
-                #data = df, 
-                #file_name ='.csv')
+                st.download_button(
+                label='Export CSV file', 
+                data = report, 
+                file_name ='.csv')
                                     
     elif magni=='x1000':    
         model = load_Model()
