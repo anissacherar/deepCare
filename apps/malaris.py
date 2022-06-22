@@ -1,6 +1,9 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+#for anonyms id 
+import uuid
+id = uuid.uuid1()
 
 from PIL import Image, ImageOps
 import numpy as np
@@ -70,13 +73,20 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                         st.image(grp, width=100, channels='RGB')
                         if st.button('Deep Quality') and len(grp)>0:
                             st.image(grp, width=100, channels='RGB')
-                df = pd.DataFrame(['0', file, p, len(grp), grn, grn+len(grp)].transpose(), columns=['Patient', 'Data', 'PARS (%)', 'PARs', 'Uninfected', 'RBCs'])
-                st.dataframe(df.style.highlight_max(axis=0))
-                st.download_button(
-                label='Export CSV file', 
-                data = df, 
-                file_name ='failed_applicants.csv'
-                )
+                report=pd.DataFrame({"Patient":id.hex, 
+                                    "Data":f.filename,
+                                    "PARS (%)":p, 
+                                    "PARs":len(grp), 
+                                    "Uninfected":grn,
+                                    "RBCs":grn+len(grp),
+                                    })
+                st.dataframe(report.style.highlight_max(axis=0))
+               # df = pd.DataFrame(['0', file, p, len(grp), grn, grn+len(grp)], columns=['Patient', 'Data', 'PARS (%)', 'PARs', 'Uninfected', 'RBCs'])
+                #st.dataframe(df.style.highlight_max(axis=0))
+                #st.download_button(
+                #label='Export CSV file', 
+                #data = df, 
+                #file_name ='.csv')
                                     
     elif magni=='x1000':    
         model = load_Model()
