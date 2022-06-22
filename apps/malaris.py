@@ -53,7 +53,9 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
         #selectedImageUrl = imageCarouselComponent(imageUrls=file, height=200)
         col1, col2 = st.columns(2)            
         #st.image(selectedImageUrl)
-        if st.button('Run test') and file is not None:
+        def handle_click():
+            st.session_state.test = False
+        if st.button('Run test', on_click=handle_click) and file is not None:
             model = load_Model()
             for f in file:
                 image = Image.open(f)
@@ -79,7 +81,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                                     "PARs":len(grp), 
                                     "Uninfected":grn,
                                     "RBCs":grn+len(grp),
-                                    },index=[1])
+                                    }, index=[1])
             st.dataframe(report["PARS (%)"].style.highlight_max(axis=0))
             st.download_button(
             label='Export report as CSV file', 
