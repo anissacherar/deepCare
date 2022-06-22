@@ -72,7 +72,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
             if st.button('Deep Quality') and len(grp)>0:
                 st.image(grp, width=100, channels='RGB')
 
-            df = pd.DataFrame(np.random.randn(10, 20), columns=('col %d' % i for i in range(20)))
+            df = pd.DataFrame(('0', file, p, len(grp), len(grn), len(grn)+len(grp)), columns=['Patient', 'Data', 'PARS (%)', 'PARs', 'Uninfected', 'RBCs'])
             st.dataframe(df.style.highlight_max(axis=0))
 
                 
