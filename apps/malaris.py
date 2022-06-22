@@ -73,11 +73,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                         st.image(grp, width=100, channels='RGB')
                     df = pd.DataFrame(('0', file, p, len(grp), len(grn), len(grn)+len(grp)), columns=['Patient', 'Data', 'PARS (%)', 'PARs', 'Uninfected', 'RBCs'])
                     st.dataframe(df.style.highlight_max(axis=0))
-                
-
-
-
-                
+                                
     elif magni=='x1000':    
         model = load_Model()
         #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
