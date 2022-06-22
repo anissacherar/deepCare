@@ -89,9 +89,6 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
             #label='Export report as CSV file', 
             #data = report, 
             #file_name ='report.csv')
-        elif st.button('Run test', on_click=handle_click) and file is  None:
-            st.warning('Please upload one or more images !')
-                     
     elif magni=='x1000':    
         model = load_Model()
         #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
