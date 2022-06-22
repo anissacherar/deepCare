@@ -70,9 +70,14 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                         st.image(grp, width=100, channels='RGB')
                         if st.button('Deep Quality') and len(grp)>0:
                             st.image(grp, width=100, channels='RGB')
-                df = pd.DataFrame(('0', file, p, len(grp), grn, grn+len(grp)), columns=['Patient', 'Data', 'PARS (%)', 'PARs', 'Uninfected', 'RBCs'])
+                df = pd.DataFrame(['0', file, p, len(grp), grn, grn+len(grp)], columns=['Patient', 'Data', 'PARS (%)', 'PARs', 'Uninfected', 'RBCs'])
                 st.dataframe(df.style.highlight_max(axis=0))
-                            
+                st.download_button(
+                label='Export CSV file', 
+                data = df, 
+                file_name ='failed_applicants.csv'
+                )
+                                    
     elif magni=='x1000':    
         model = load_Model()
         #model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-4), loss='categorical_crossentropy',
