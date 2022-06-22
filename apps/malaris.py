@@ -82,7 +82,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                                     "PARs":len(grp), 
                                     "Uninfected":grn,
                                     "RBCs":grn+len(grp),
-                                    }, index=[1])
+                                    }, ignore_index=True)
             #st.dataframe(report.style.highlight_max(axis=0))
             st.dataframe(report.style.highlight_max(axis=0))
 
