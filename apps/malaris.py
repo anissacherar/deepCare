@@ -69,11 +69,13 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                             st.image(champ_f,use_column_width=True)
                         with col4:
                             st.image(grp, width=100, channels='RGB')
-            if st.button('Deep Quality') and len(grp)>0:
-                st.image(grp, width=100, channels='RGB')
+                    if st.button('Deep Quality') and len(grp)>0:
+                        st.image(grp, width=100, channels='RGB')
+                    df = pd.DataFrame(('0', file, p, len(grp), len(grn), len(grn)+len(grp)), columns=['Patient', 'Data', 'PARS (%)', 'PARs', 'Uninfected', 'RBCs'])
+                    st.dataframe(df.style.highlight_max(axis=0))
+                
 
-            df = pd.DataFrame(('0', file, p, len(grp), len(grn), len(grn)+len(grp)), columns=['Patient', 'Data', 'PARS (%)', 'PARs', 'Uninfected', 'RBCs'])
-            st.dataframe(df.style.highlight_max(axis=0))
+
 
                 
     elif magni=='x1000':    
