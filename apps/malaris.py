@@ -75,13 +75,13 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                         st.image(grp, width=100, channels='RGB')
                         if st.button('Deep Quality') and len(grp)>0:
                             st.image(grp, width=100, channels='RGB')
-                report=pd.DataFrame({"Patient":id.hex, 
-                                    "Data":f.name,
-                                    "PARS (%)":p, 
-                                    "PARs":len(grp), 
-                                    "Uninfected":grn,
-                                    "RBCs":grn+len(grp),
-                                    }, index=[1])
+                #report=pd.DataFrame({"Patient":id.hex, 
+                 #                   "Data":f.name,
+                  #                  "PARS (%)":p, 
+                   #                 "PARs":len(grp), 
+                    #                "Uninfected":grn,
+                     #               "RBCs":grn+len(grp),
+                      #              }, index=[1])
             #st.dataframe(report["PARS (%)"].style.highlight_max(axis=0))
             #st.download_button(
             #label='Export report as CSV file', 
