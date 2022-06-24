@@ -23,7 +23,7 @@ st.title("DeepCare")
 
 st.session_state["warned_about_save_answers"] = True
 
-stb.set_book_config(menu_title="Main Menu",
+stb.set_book_config(menu_title=st.title("DeepCare"),
                     menu_icon="lightbulb",
                     options=[
                               "About",
