@@ -55,7 +55,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
         #st.image(selectedImageUrl)
         def handle_click():
             st.session_state.test = False
-        if st.button('Run test', on_click=handle_click) and file is not None:
+        if st.button('▶️ Run test', on_click=handle_click) and file is not None:
             model = load_Model()
             report = pd.DataFrame(columns=['Patient','Data','PARS (%)','PARs','Uninfected','RBCs'])
             for f in file:
