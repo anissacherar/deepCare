@@ -19,11 +19,11 @@ st.set_page_config(
 display = Image.open('logo.png')
 display = np.array(display)
 st.image(display, width = 120)
-title=st.title("DeepCare")
+st.title("DeepCare")
 
 st.session_state["warned_about_save_answers"] = True
 
-stb.set_book_config(menu_title=title,
+stb.set_book_config(menu_title="Main Menu",
                     menu_icon="lightbulb",
                     options=[
                               "About",
