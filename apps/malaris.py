@@ -3,7 +3,6 @@ import streamlit.components.v1 as components
 
 #for anonyms id 
 import uuid
-id = uuid.uuid1()
 
 from PIL import Image, ImageOps
 import numpy as np
@@ -59,6 +58,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
             model = load_Model()
             report = pd.DataFrame(columns=['Patient','Data','PARs (%)','PARs','Uninfected','RBCs'])
             for f in file:
+                id = uuid.uuid1()
                 image = Image.open(f)
                 image = np.asarray(image)
                 champ = cropChamp(image)
