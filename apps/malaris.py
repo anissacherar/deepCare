@@ -57,7 +57,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
             st.session_state.test = False
         if st.button('▶️ Run test', on_click=handle_click) and file is not None:
             model = load_Model()
-            report = pd.DataFrame(columns=['Patient','Data','PARS (%)','PARs','Uninfected','RBCs'])
+            report = pd.DataFrame(columns=['Patient','Data','PARs (%)','PARs','Uninfected','RBCs'])
             for f in file:
                 image = Image.open(f)
                 image = np.asarray(image)
@@ -78,7 +78,7 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                         #   st.image(grp, width=100, channels='RGB')
                 report=report.append({"Patient":id.hex, 
                                     "Data":f.name,
-                                    "PARS (%)":p, 
+                                    "PARs (%)":p, 
                                     "PARs":len(grp), 
                                     "Uninfected":grn,
                                     "RBCs":grn+len(grp),
