@@ -28,12 +28,14 @@ stb.set_book_config(menu_title="Main Menu",
                     options=[
                               "About",
                               "PARASITOLOGY",
+                              "HEMATOLOGY",
                               "Contact",
                             ],
                            
                     paths=[
                         "apps/about",
                         "apps/malaris.py",
+                        "apps/hemato.py",
                         "apps/Contact",
                           ],
                     
