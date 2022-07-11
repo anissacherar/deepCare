@@ -24,6 +24,7 @@ stb.set_book_config(menu_title="Main Menu",
                               "About",
                               "PARASITOLOGY",
                               "HEMATOLOGY",
+                              "SEROLOGY",
                               "Contact",
                             ],
                            
@@ -31,7 +32,8 @@ stb.set_book_config(menu_title="Main Menu",
                         "apps/about.py",
                         "apps/malaris.py",
                         "apps/hemato.py",
-                        "apps/Contact",
+                        "apps/serology.py",
+                        "apps/contact.py",
                           ],
                     
                     icons=[
