@@ -1,4 +1,12 @@
-import time
+import streamlit as st
+from PIL import Image, ImageOps
+import numpy as np
+import streamlit_authenticator as stauth
+#multipages
+import streamlit_book as stb
+from pathlib import Path
+
+"""import time
 import requests
 
 import streamlit as st
@@ -24,4 +32,9 @@ st_lottie(lottie_hello, key="hello")
 if st.button("Download"):
     with st_lottie_spinner(lottie_download, key="download"):
         time.sleep(5)
-    st.balloons()
+    st.balloons()"""
+# Title of the main page
+display = Image.open('logo.png')
+display = np.array(display)
+st.image(display, width = 120)
+st.title("DeepCare")
