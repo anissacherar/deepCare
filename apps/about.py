@@ -38,3 +38,8 @@ display = Image.open('logo.png')
 display = np.array(display)
 st.image(display, width = 120)
 st.title("DeepCare")
+
+video_file = open('DeepCare.mp4', 'rb')
+video_bytes = video_file.read()
+
+st.video(video_bytes)
