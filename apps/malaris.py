@@ -31,16 +31,19 @@ from typing import List, NamedTuple
 from apps.code.thin import *
 
 
-page_bg_img = '''
-<style>
-body {
-background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
-background-size: cover;
-}
-</style>
-'''
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
+    }
+   .sidebar .sidebar-content {
+        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 col1, col2 = st.columns(2)
 choices = col1.selectbox("Select the output results ", options=('P.Falciparum detection and Parasite density (%)', 
