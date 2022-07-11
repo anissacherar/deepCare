@@ -46,7 +46,7 @@ st.markdown(
 )
 
 col1, col2 = st.columns(2)
-choices = col1.selectbox("Select the output results ", options=('WBC detection and differencial count'))
+choices = col1.multiselect("Select the output results ", ['WBC detection and differencial count', 'Platelets count'])
 
 if (choices == "WBC detection and differencial count"):
     magni = col2.radio("Select the magnification of the blood smear images.", 
