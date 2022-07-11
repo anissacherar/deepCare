@@ -31,20 +31,10 @@ from typing import List, NamedTuple
 from apps.code.thin import *
 
 
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
-    }
-   .sidebar .sidebar-content {
-        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
+display = Image.open('logo.png')
+display = np.array(display)
+st.image(display, width = 120)
+st.title("HEMABOX")
 col1, col2 = st.columns(2)
 choices = col1.multiselect("Select the output results ", ['WBC detection and differencial count', 'Platelets count'])
 
