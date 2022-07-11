@@ -31,19 +31,12 @@ from typing import List, NamedTuple
 from apps.code.thin import *
 
 
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
-    }
-   .sidebar .sidebar-content {
-        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Title of the main page
+display = Image.open('logo.png')
+display = np.array(display)
+st.image(display, width = 120)
+st.title("DeepCare")
+
 
 col1, col2 = st.columns(2)
 choices = col1.selectbox("Select the output results ", options=('P.Falciparum detection and Parasite density (%)', 
