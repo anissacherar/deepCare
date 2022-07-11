@@ -27,15 +27,16 @@ stb.set_book_config(menu_title="Main Menu",
                     menu_icon="lightbulb",
                     options=[
                               "About",
-                              "MALARIS",
+                              "PARASITOLOGY",
                               "Contact",
-
                             ],
+                           
                     paths=[
                         "apps/about",
                         "apps/malaris.py",
                         "apps/Contact",
                           ],
+                    
                     icons=[
                           "house",
                           "robot",
