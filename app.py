@@ -15,11 +15,6 @@ st.set_page_config(
 )
 
 
-# Title of the main page
-display = Image.open('logo.png')
-display = np.array(display)
-st.image(display, width = 120)
-st.title("DeepCare")
 
 st.session_state["warned_about_save_answers"] = True
 

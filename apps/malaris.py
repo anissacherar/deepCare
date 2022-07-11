@@ -35,7 +35,7 @@ from apps.code.thin import *
 display = Image.open('logo.png')
 display = np.array(display)
 st.image(display, width = 120)
-st.title("DeepCare")
+st.title("Malaris")
 
 
 col1, col2 = st.columns(2)
