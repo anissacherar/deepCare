@@ -33,7 +33,7 @@ stb.set_book_config(menu_title="Main Menu",
                             ],
                            
                     paths=[
-                        "apps/about",
+                        "apps/about.py",
                         "apps/malaris.py",
                         "apps/hemato.py",
                         "apps/Contact",
