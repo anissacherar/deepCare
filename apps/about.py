@@ -34,10 +34,9 @@ if st.button("Download"):
         time.sleep(5)
     st.balloons()"""
 # Title of the main page
-display = Image.open('logo.png')
+display = Image.open('DeepCare_white_text.png')
 display = np.array(display)
 st.image(display, width = 120)
-st.title("DeepCare")
 
 video_file = open('DeepCare.mp4', 'rb')
 video_bytes = video_file.read()
