@@ -36,7 +36,7 @@ if st.button("Download"):
 # Title of the main page
 display = Image.open('DeepCare_white_text.png')
 display = np.array(display)
-st.image(display, width = 120)
+st.image(display)
 
 video_file = open('DeepCare.mp4', 'rb')
 video_bytes = video_file.read()
