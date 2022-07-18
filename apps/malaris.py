@@ -90,8 +90,9 @@ if (choices == "P.Falciparum detection and Parasite density (%)"):
                                     "Uninfected":grn,
                                     "RBCs":grn+len(grp),
                                     }, ignore_index=True)
+                st.dataframe(report)
             #st.dataframe(report.style.highlight_max(axis=0))
-            st.dataframe(report)
+            
             #st.download_button(
             #label='Export report as CSV file', 
             #data = report, 
