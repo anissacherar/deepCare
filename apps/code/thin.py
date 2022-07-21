@@ -393,22 +393,23 @@ def exam(champ,model):
         # if w<=1.5*h and h<=1.5*w and 20 <= w <= 100 and 20 <= h <= 100 :#and dist>=30 and area >=200 :
         if 30 <= w <= 100 and 30 <= h <= 100:  # 20 si c'est du x100 ou oculaire x 12 30 si c'est du X50 champ large
             gr = champ[y-5:y + h+5, x-5:x + w+5]
-            #gr = cv2.cvtColor(gr, cv2.COLOR_BGR2RGB)
-            #gr= match_histograms(gr, reference)
-            vraiesCellules.append(gr)
-            res = posouneg(gr,model)
-            if res == 'GRP':
-                # cv2.circle(champ_seg, (cX, cY), 3, (0,255 , 0), -1)
-                cv2.rectangle(champ_seg, (x-5, y-5), (x + w+5, y + h+5), (255, 0, 0), 2)
-                # cv2.putText(champ_seg, 'GRP',  (x + w + 10, y + h), 0, 0.3, (255, 0, 0))
-                #cv2.imwrite("resultats/pos/" + str(idx) + ".jpg", gr)
-                grp.append(gr)
+            count = gr[gr==0]            
+            if gr.shape[0]>0 and gr.shape[1]>0 and len(count)<600: #600 car équivaut à 20% de l'image 
+                #gr = cv2.cvtColor(gr, cv2.COLOR_BGR2RGB)
+                vraiesCellules.append(gr)
+                res = posouneg(gr,model)
+                if res == 'GRP':
+                    # cv2.circle(champ_seg, (cX, cY), 3, (0,255 , 0), -1)
+                    cv2.rectangle(champ_seg, (x-5, y-5), (x + w+5, y + h+5), (255, 0, 0), 2)
+                    # cv2.putText(champ_seg, 'GRP',  (x + w + 10, y + h), 0, 0.3, (255, 0, 0))
+                    #cv2.imwrite("resultats/pos/" + str(idx) + ".jpg", gr)
+                    grp.append(gr)
 
-            elif res == 'GRN':
-                # cv2.circle(champ_seg, (cX, cY), 3, (0,255 , 0), -1)
-                cv2.rectangle(champ_seg, (x-5, y-5), (x + w+5, y + h+5), (0, 255, 0), 2)
-                # cv2.putText(champ_seg, 'GRN',  (x + w + 10, y + h), 0, 0.3, (0, 255, 0))
-                #cv2.imwrite("resultats/neg/" + str(idx) + ".jpg", gr)
+                elif res == 'GRN':
+                    # cv2.circle(champ_seg, (cX, cY), 3, (0,255 , 0), -1)
+                    cv2.rectangle(champ_seg, (x-5, y-5), (x + w+5, y + h+5), (0, 255, 0), 2)
+                    # cv2.putText(champ_seg, 'GRN',  (x + w + 10, y + h), 0, 0.3, (0, 255, 0))
+                    #cv2.imwrite("resultats/neg/" + str(idx) + ".jpg", gr)
 
         idx += 1
     grn=len(vraiesCellules)-len(grp)
