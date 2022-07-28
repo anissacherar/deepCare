@@ -32,7 +32,7 @@ from apps.code.thin import *
 
 
 # Title of the main page
-display = Image.open('logo.png')
+display = Image.open('imgs/DeepCare_white_reduc.png')
 display = np.array(display)
 st.image(display, width = 120)
 st.title("Malaris")

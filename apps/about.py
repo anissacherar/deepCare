@@ -34,7 +34,7 @@ if st.button("Download"):
         time.sleep(5)
     st.balloons()"""
 # Title of the main page
-display = Image.open('DeepCare_white_text.png')
+display = Image.open('imgs/DeepCare_white_text_reduc.png')
 display = np.array(display)
 st.image(display)
 
