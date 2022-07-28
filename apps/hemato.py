@@ -31,7 +31,7 @@ from typing import List, NamedTuple
 from apps.code.thin import *
 
 
-display = Image.open('imgs/logo.png')
+display = Image.open('imgs/DeepCare_white_reduc.png')
 display = np.array(display)
 st.image(display, width = 120)
 st.title("Hemabox")
